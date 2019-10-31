@@ -1,0 +1,1 @@
+ifconfig -a | cut -c 1-8 | sort | uniq -u
