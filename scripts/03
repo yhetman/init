@@ -3,35 +3,35 @@
 
 HostName()
 {
-	 echo -e "${FOREGROUND}${BACKGROUND}/*** HOST INFORMATION ***\ ${DEFAULT}"
+	 echo -e "${FOREGROUND}${BACKGROUND}/====== HOST INFORMATION ======\ ${DEFAULT}"
 	 hostnamectl
 	 echo ${BLANK}
  }
 
-DiskSpace()
+MemoryStorage()
 {
-    echo -e "${FOREGROUND}${BACKGROUND}/*** DISK SPACE USAGE ***\ ${DEFAULT}\n"
+    echo -e "${FOREGROUND}${BACKGROUND}/====== Memory Storage=====\ ${DEFAULT}\n"
     df -h
     echo ${BLANK}
 }
 
-Memory()
+DiskSpace()
 {
-    echo -e "${FOREGROUND}${BACKGROUND}/*** MEMORY USAGE ***\ ${DEFAULT}\n"
+    echo -e "${FOREGROUND}${BACKGROUND}/====== Free Space on Disk ======\ ${DEFAULT}\n"
     free
     echo ${BLANK}
 }
 
 UpTime()
 {
-    echo -e "${FOREGROUND}${BACKGROUND}/*** SYSTEM UPTIME ***\ ${DEFAULT}\n"
+    echo -e "${FOREGROUND}${BACKGROUND}/====== SYSTEM UPTIME ======\ ${DEFAULT}\n"
     uptime
     echo ${BLANK}
 }
 
 Users()
 {
-	echo -e "${FOREGROUND}${BACKGROUND}/*** ACTIVE USERS ***\ ${DEFAULT}\n"
+	echo -e "${FOREGROUND}${BACKGROUND}/====== ACTIVE USERS ======\ ${DEFAULT}\n"
 	who
 	echo ${BLANK}
 }
@@ -64,7 +64,7 @@ while [[ ${INPUT} = "y" ]]
 			    DiskSpace
 			    echo ${BLANK};;
 			3)
-			    Memory
+			    MemoryStorage
 			    echo ${BLANK};;
 			4)
 			    UpTime
@@ -75,7 +75,7 @@ while [[ ${INPUT} = "y" ]]
 			6)
 				HostName
 				DiskSpace
-				Memory
+				MemoryStorage
 				UpTime
 				Users
 				echo ${BLANK};;
