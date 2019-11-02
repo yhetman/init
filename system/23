@@ -1,0 +1,9 @@
+# New user tutorial
+
+Step 1.
+	In graphic session you need to enter your login and password;
+
+Step 2.
+	Run such command:
+						ssh user@IP_ADDRESS
+	Enter your password
