@@ -1,0 +1,2 @@
+who -a
+# sudo cat /var/log/messages | grep sshd
