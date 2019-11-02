@@ -1,0 +1,94 @@
+
+#!/bin/bash
+
+HostName() {
+	 echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** HOST INFORMATION ***\ ${DEFAULT_COLOR}"
+	 hostnamectl
+	 echo ${BLANK_SPACE}
+ }
+
+DiskSpace() {
+    echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** DISK SPACE USAGE ***\ ${DEFAULT_COLOR}\n"
+    df -h
+    echo ${BLANK_SPACE}
+}
+
+Memory() {
+    echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** MEMORY USAGE ***\ ${DEFAULT_COLOR}\n"
+    free
+    echo ${BLANK_SPACE}
+}
+
+UpTime() {
+    echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** SYSTEM UPTIME ***\ ${DEFAULT_COLOR}\n"
+    uptime
+    echo ${BLANK_SPACE}
+}
+
+Users() {
+	echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** ACTIVE USERS ***\ ${DEFAULT_COLOR}\n"
+	who
+	echo ${BLANK_SPACE}
+}
+
+echo -e "\e[96m================================================\n"
+echo -e "\t\t System Information\n"
+echo -e "================================================\e[0m\n"          
+
+echo -e "(1):\t Display Host Information"
+echo -e "(2):\t Display Disk Space"
+echo -e "(3):\t Display Memory"
+echo -e "(4):\t Display Uptime"
+echo -e "(5):\t Display Active Users"
+echo -e "(6):\t Display all options\n"
+
+FOREGROUND_COLOR="\e[97m"
+BACKGROUND_COLOR="\e[104m"
+DEFAULT_COLOR="\e[0m"
+BLANK_SPACE=""
+
+INPUT="y"
+while [[ ${INPUT} = "y" ]]
+	do
+		read -p "Choose the option : " CHOICE
+		case ${CHOICE} in
+			1)
+				HostName
+				echo ${BLANK_SPACE};;
+			2)
+			    DiskSpace
+			    echo ${BLANK_SPACE};;
+			3)
+			    Memory
+			    echo ${BLANK_SPACE};;
+			4)
+			    UpTime
+			    echo ${BLANK_SPACE};;
+			5)
+			    Users
+			    echo ${BLANK_SPACE};;
+			6)
+				HostName
+				DiskSpace
+				Memory
+				UpTime
+				Users
+				echo ${BLANK_SPACE};;
+			*)
+				echo -e "You must enter a number between 1-6 ONLY.\n";;
+		esac
+		
+		echo "Do you want to continue? y/n ."
+		
+		read INPUT
+		
+		if [[ ${INPUT} = "n" ]];
+	 	then
+        	echo -e ${BLANK_SPACE}
+		elif [[ ${INPUT} = "y" ]];
+		then    
+		    echo ${BLANK_SPACE}
+		    continue
+		fi
+	done
+exit 0
