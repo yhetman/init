@@ -1,34 +1,39 @@
 
 #!/bin/bash
 
-HostName() {
-	 echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** HOST INFORMATION ***\ ${DEFAULT_COLOR}"
+HostName()
+{
+	 echo -e "${FOREGROUND}${BACKGROUND}/*** HOST INFORMATION ***\ ${DEFAULT}"
 	 hostnamectl
-	 echo ${BLANK_SPACE}
+	 echo ${BLANK}
  }
 
-DiskSpace() {
-    echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** DISK SPACE USAGE ***\ ${DEFAULT_COLOR}\n"
+DiskSpace()
+{
+    echo -e "${FOREGROUND}${BACKGROUND}/*** DISK SPACE USAGE ***\ ${DEFAULT}\n"
     df -h
-    echo ${BLANK_SPACE}
+    echo ${BLANK}
 }
 
-Memory() {
-    echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** MEMORY USAGE ***\ ${DEFAULT_COLOR}\n"
+Memory()
+{
+    echo -e "${FOREGROUND}${BACKGROUND}/*** MEMORY USAGE ***\ ${DEFAULT}\n"
     free
-    echo ${BLANK_SPACE}
+    echo ${BLANK}
 }
 
-UpTime() {
-    echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** SYSTEM UPTIME ***\ ${DEFAULT_COLOR}\n"
+UpTime()
+{
+    echo -e "${FOREGROUND}${BACKGROUND}/*** SYSTEM UPTIME ***\ ${DEFAULT}\n"
     uptime
-    echo ${BLANK_SPACE}
+    echo ${BLANK}
 }
 
-Users() {
-	echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}/*** ACTIVE USERS ***\ ${DEFAULT_COLOR}\n"
+Users()
+{
+	echo -e "${FOREGROUND}${BACKGROUND}/*** ACTIVE USERS ***\ ${DEFAULT}\n"
 	who
-	echo ${BLANK_SPACE}
+	echo ${BLANK}
 }
 
 echo -e "\e[96m================================================\n"
@@ -36,16 +41,16 @@ echo -e "\t\t System Information\n"
 echo -e "================================================\e[0m\n"          
 
 echo -e "(1):\t Display Host Information"
-echo -e "(2):\t Display Disk Space"
-echo -e "(3):\t Display Memory"
-echo -e "(4):\t Display Uptime"
+echo -e "(2):\t Display Free Space on Disk"
+echo -e "(3):\t Display Memory Storage"
+echo -e "(4):\t Display Uptime Log”
 echo -e "(5):\t Display Active Users"
-echo -e "(6):\t Display all options\n"
+echo -e "(6):\t Display All Options\n"
 
-FOREGROUND_COLOR="\e[97m"
-BACKGROUND_COLOR="\e[104m"
-DEFAULT_COLOR="\e[0m"
-BLANK_SPACE=""
+FOREGROUND="\e[97m"
+BACKGROUND="\e[104m"
+DEFAULT="\e[0m"
+BLANK=""
 
 INPUT="y"
 while [[ ${INPUT} = "y" ]]
@@ -54,28 +59,28 @@ while [[ ${INPUT} = "y" ]]
 		case ${CHOICE} in
 			1)
 				HostName
-				echo ${BLANK_SPACE};;
+				echo ${BLANK};;
 			2)
 			    DiskSpace
-			    echo ${BLANK_SPACE};;
+			    echo ${BLANK};;
 			3)
 			    Memory
-			    echo ${BLANK_SPACE};;
+			    echo ${BLANK};;
 			4)
 			    UpTime
-			    echo ${BLANK_SPACE};;
+			    echo ${BLANK};;
 			5)
 			    Users
-			    echo ${BLANK_SPACE};;
+			    echo ${BLANK};;
 			6)
 				HostName
 				DiskSpace
 				Memory
 				UpTime
 				Users
-				echo ${BLANK_SPACE};;
+				echo ${BLANK};;
 			*)
-				echo -e "You must enter a number between 1-6 ONLY.\n";;
+				echo -e "Choose from 1 to 6.\n";;
 		esac
 		
 		echo "Do you want to continue? y/n ."
@@ -84,10 +89,10 @@ while [[ ${INPUT} = "y" ]]
 		
 		if [[ ${INPUT} = "n" ]];
 	 	then
-        	echo -e ${BLANK_SPACE}
+        	echo -e ${BLANK}
 		elif [[ ${INPUT} = "y" ]];
 		then    
-		    echo ${BLANK_SPACE}
+		    echo ${BLANK}
 		    continue
 		fi
 	done
