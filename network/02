@@ -1,1 +1,11 @@
-ifconfig en0 | grep 'inet' | awk '{print $2}'
+
+
+IP_ADDR=$(ifconfig en0 | grep broadcast | awk {'print $6'})
+
+# FIRST TASK
+ 
+ ifconfig en0 | grep broadcast | awk {'print $6'}
+
+# SECOND TASK
+
+ping $IP_ADDR | arp -a

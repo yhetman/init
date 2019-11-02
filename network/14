@@ -1,1 +1,3 @@
-/etc/hosts
+#!/bin/bash
+
+echo "/etc/hosts " 

@@ -1,1 +1,3 @@
-echo "49.19.122.85 intra.42.fr" > /etc/hosts 
+#!/bin/bash
+ 
+echo " You need to add th following IP 46.19.122.85 with the name intra.42.fr to /private/etc/hosts "

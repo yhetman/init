@@ -1,3 +1,6 @@
-traceroute slash16.org
+
+ADDR=$(nslookup slash16.org | grep Address | tail -n1 | awk '{print $2}')
+
+traceroute $ADDR
 
 # traceroute — print the route packets take to network host.
