@@ -1,0 +1,3 @@
+#!/bin/bash
+
+adduser 'new_user'
